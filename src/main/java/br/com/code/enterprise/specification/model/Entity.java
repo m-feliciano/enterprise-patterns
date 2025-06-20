@@ -5,13 +5,19 @@ import br.com.code.enterprise.specification.internal.interfaces.HasCreationDate;
 import br.com.code.enterprise.specification.internal.interfaces.HasId;
 import br.com.code.enterprise.specification.internal.interfaces.HasName;
 import br.com.code.enterprise.specification.internal.interfaces.HasPrice;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Entity implements HasActive, HasId, HasName, HasPrice, HasCreationDate {
 
@@ -21,6 +27,10 @@ public class Entity implements HasActive, HasId, HasName, HasPrice, HasCreationD
     private boolean active;
     private Date created;
     private BigDecimal price;
+
+    public Entity(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {
